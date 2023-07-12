@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+
+::selection {
+    color: inherit;
+    background: rgba(0,0,0,0.2);
+}
+
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus {
+    background-color: rgba(0,0,0,0.2);
+    color: inherit;
+    outline: none;
+}
+
+input
+{
+    letter-spacing: 1px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    color: #fff
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 1px black;
+}
+
+.navbar-buttons .btn {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    transition-duration: 0.3s;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.navbar-buttons .btn:hover {
+    color: #ff7070 !important;
+}
+
+/* Hero Banner Styles */
+.hero-banner {
+    background-color: #f2f2f2;
+    padding: 50px;
+    height: calc(100vh - 144px);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-family: 'Mili', sans-serif;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 32px;
+    line-height: 125%;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    padding: 0 15% 0 15%
+}
+
+.btn-register {
+    background-color: #ff5050;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition-duration: 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #ff7070 !important;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Register Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="{{ url_for('register') }}" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="bdate">Birth Date:</label>
+                <input type="date" id="bdate" name="bdate" max="2018-01-01" min="1900-01-01" required>
+            </div>
+            <div class="form-group">
+                <label for="bdate">Gender:</label>
+                <div class="radio">
+                    <input type="radio" id="Male" name="gender" value="Male" checked="True" required>
+                    <label for="Male">Male</label>
+                </div>
+
+                <div class="radio">
+                    <input type="radio" id="Female" name="gender" value="Female" required>
+                    <label for="Female">Female</label>
+                </div>
+
+                <div class="radio">
+                    <input type="radio" id="Other" name="gender" value="Other" required>
+                    <label for="Other">Other</label>
+                </div> 
+                
+            </div>
+            <div class="form-submit">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+        {% endif %}
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+</body>
+</html>
