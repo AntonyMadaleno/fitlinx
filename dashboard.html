@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+
+    <script src="{{ url_for('static', filename='edit_user_info.js') }}" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                FitLinx
+            </div>
+            <div class="navbar-buttons">
+                <button class="btn" onclick="disconnect()">Disconnect</button>
+                <button class="btn" onclick="openProfileMenu(this)">Profile</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section" style="max-width: min-content;">
+
+            <h2>{{ username }}</h2>
+            <div class="info-container">
+
+                <div class="info">
+                    <span class="info-label">Height:</span>
+                    <span class="info-field"><span class="info-value" id="height">{{ height }}</span> cm</span>
+                    <button class="modify-btn" onclick="enableEdit(this, 'height')"> Update </button>
+                </div>
+
+                <div class="info" onclick="display(this, '#weightChart')">
+                    <span class="info-label" id="weight-info">Weight:</span>
+                    <span class="info-field"><span class="info-value" id="weight">{{ weight }}</span> kg</span>
+                    <button class="modify-btn" onclick="enableEdit(this, 'weight')"> Update </button>
+                </div>
+
+                <div class="info">
+                    <span class="info-label">Age:</span>
+                    <span class="info-field"><span class="info-value" id="age">{{ age }}</span></span>
+                </div>
+
+                <div class="info">
+                    <span class="info-label">Gender:</span>
+                    <span class="info-field"><span class="info-value" id="gender">{{ gender }}</span></span>
+                </div>
+
+                <div class="info" onclick="display(this, '#benchChart')">
+                    <span class="info-label" id="bench-info">Bench:</span>
+                    <span class="info-field"><span class="info-value" id="bench">{{ bench }}</span> kg</span>
+                    <button class="modify-btn" onclick="enableEdit(this, 'bench')"> Update </button>
+                </div>
+
+                <div class="info" onclick="display(this, '#squatChart')">
+                    <span class="info-label" id="squat-info">Squat:</span>
+                    <span class="info-field"><span class="info-value" id="squat">{{ squat }}</span> kg</span>
+                    <button class="modify-btn" onclick="enableEdit(this, 'squat')"> Update </button>
+                </div>
+
+                <div class="info" onclick="display(this, '#dlChart')">
+                    <span class="info-label" id="dl-info">DL:</span>
+                    <span class="info-field"><span class="info-value" id="DL">{{ dl }}</span> kg</span>
+                    <button class="modify-btn" onclick="enableEdit(this, 'DL')"> Update </button>
+                </div>
+
+                <div class="info" onclick="display(this, '#pullChart')">
+                    <span class="info-label" id="pull-info">Pull-up:</span>
+                    <span class="info-field"><span class="info-value" id="pull">{{ pull }}</span></span>
+                    <button class="modify-btn" onclick="enableEdit(this, 'pull')"> Update </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="section" id="my_stats">
+            <h2> My Stats </h2>
+            <canvas id="weightChart" style="display: none;"></canvas>
+            <canvas id="benchChart" style="display: none;"></canvas>
+            <canvas id="squatChart" style="display: none;"></canvas>
+            <canvas id="dlChart" style="display: none;"></canvas>
+            <canvas id="pullChart" style="display: none;"></canvas>
+        </div>
+    </div>
+
+    <footer>
+        <button class="footer-btn"> Dashboard </button>
+        <button class="footer-btn"> Chat </button>
+        <button class="footer-btn"> Forum </button>
+    </footer>
+
+    <div class="profile_menu">
+
+    </div>
+
+    <script>
+        function disconnect() {
+            window.location.href = '/logout';
+        }
+    </script>
+    <script src="{{ url_for('static', filename='get_user_logs.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='manage_profile.js') }}" type="text/javascript"></script>
+
+</body>
+</html>
